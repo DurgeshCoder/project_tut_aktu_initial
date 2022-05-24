@@ -8,11 +8,11 @@
         <version>2.6.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ecom</groupId>
-    <artifactId>backend-ecom</artifactId>
+    <groupId>com.project.tut</groupId>
+    <artifactId>project_tut</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>backend-ecom</name>
-    <description>backend-ecom</description>
+    <name>project_tut</name>
+    <description>project_tut</description>
     <properties>
         <java.version>17</java.version>
         <maven.compiler.source>16</maven.compiler.source>
