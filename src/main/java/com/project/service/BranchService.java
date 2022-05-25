@@ -19,5 +19,5 @@ public interface BranchService {
     List<BranchDto> getBranches();
 
 
-    BranchDto getById(int courseId);
+    BranchDto getById(int branchId);
 }

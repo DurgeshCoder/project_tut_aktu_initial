@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,11 +41,11 @@ public class Subject {
     private List<Topic> topics = new ArrayList<>();
 
 
-    @OneToMany(mappedBy = "subject",  cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Book> books = new ArrayList<>();
 
 
-    @OneToMany(mappedBy = "subject",  cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PreviousPaper> previousPapers = new ArrayList<>();
 }
 

@@ -1,5 +1,6 @@
 package com.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,8 @@ public class University {
     private int id;
     private String name;
     private String location;
+
     @OneToMany(mappedBy = "university", orphanRemoval = true, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<College> colleges = new HashSet<>();
 }

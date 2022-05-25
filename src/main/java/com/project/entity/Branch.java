@@ -1,5 +1,7 @@
 package com.project.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +27,7 @@ public class Branch {
     private Set<Course> courses = new HashSet<>();
 
     @ManyToMany(mappedBy = "branches")
+    @JsonIgnore
     private Set<Subject> subjects = new HashSet<>();
 
 }
