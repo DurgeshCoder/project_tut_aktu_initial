@@ -8,10 +8,10 @@ public interface UniversityService {
     public UniversityDto createUniversity(UniversityDto unisersityDto);
 
     //update
-    public UniversityDto updateUniversity(int userId, UniversityDto unisersityDto);
+    public UniversityDto updateUniversity(int universityId, UniversityDto unisersityDto);
 
     //delete
-    public void deleteUniversity(int userId);
+    public void deleteUniversity(int universityId);
 
     //get user
 

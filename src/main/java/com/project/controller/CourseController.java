@@ -19,7 +19,6 @@ public class CourseController {
 
     @Autowired
     private CourseService courseService;
-
     @GetMapping
     public ResponseEntity<List<CourseDto>> getCourses() {
         List<CourseDto> courses = this.courseService.getCourses();
