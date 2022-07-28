@@ -1,6 +1,8 @@
 package com.project.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,12 +21,9 @@ public class College {
     private String collegeCode;
     private String name;
     private String location;
-
     @ManyToOne
-    @JsonBackReference
     private University university;
-
-    @ManyToMany(mappedBy = "colleges")
+    @ManyToMany(mappedBy = "colleges", fetch = FetchType.EAGER)
     private Set<Course> courses = new HashSet<>();
 
 }

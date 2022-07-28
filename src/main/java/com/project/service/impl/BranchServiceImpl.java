@@ -30,7 +30,7 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public BranchDto update(int branchId, BranchDto branchDto) {
-        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch", "branchid", branchId + ""));
+        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch",  branchId + ""));
         branch.setBranchCode(branchDto.getBranchCode());
         branch.setName(branchDto.getName());
         Branch save = this.branchRepo.save(branch);
@@ -39,7 +39,7 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public void delete(int branchId) {
-        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch", "branchid", branchId + ""));
+        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch", branchId + ""));
         this.branchRepo.delete(branch);
     }
 
@@ -54,7 +54,7 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public BranchDto getById(int branchId) {
-        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch", "branchid", branchId + ""));
+        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch", branchId + ""));
         return this.mapper.map(branch, BranchDto.class);
 
 

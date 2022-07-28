@@ -8,9 +8,9 @@ public class ResourceNotFoundException extends RuntimeException {
 
     }
 
-    public ResourceNotFoundException(String user, String username, String email) {
+    public ResourceNotFoundException(String resource, String resourceId) {
 
-        super(user + " with " + username + " : " + email + " not found !!");
+        super(resource + " with " + resourceId + " not found on server !!");
 
     }
 }

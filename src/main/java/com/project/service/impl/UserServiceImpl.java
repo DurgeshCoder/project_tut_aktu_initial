@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto updateUser(int userId, UserDto userDto) {
-        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("user", " user id ", userId + ""));
+        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("user",  userId + ""));
         user.setName(userDto.getName());
         user.setLink(userDto.getLink());
         user.setCollege(this.mapper.map(userDto.getCollege(), College.class));
@@ -43,19 +43,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(int userId) {
-        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("user", " user id ", userId + ""));
+        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("user", userId + ""));
         this.userRepo.delete(user);
     }
 
     @Override
     public UserDto getUserById(int userId) {
-        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("user", " user id ", userId + ""));
+        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("user",  userId + ""));
         return this.mapper.map(user, UserDto.class);
     }
 
     @Override
     public UserDto getUserByEmail(String email) {
-        User user = this.userRepo.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("user", " user id ", email + ""));
+        User user = this.userRepo.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("user", email + ""));
         return this.mapper.map(user, UserDto.class);
     }
 

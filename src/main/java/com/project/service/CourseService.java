@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface CourseService {
 
+
     //create
+
+    CourseDto createInCollege(CourseDto dto,int collegeId);
+
     CourseDto create(CourseDto courseDto);
 
     //update
@@ -17,7 +21,9 @@ public interface CourseService {
 
     List<CourseDto> getCourses();
 
-    CourseDto getCourseByDto(int courseId);
 
+    CourseDto getCourseById(int courseId);
+
+    List<CourseDto> getByCollege(int collegeId);
 
 }
