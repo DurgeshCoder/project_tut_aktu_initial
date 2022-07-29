@@ -28,7 +28,7 @@ public class Course {
     @ManyToMany
     private Set<College> colleges = new HashSet<>();
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "courses",fetch = FetchType.EAGER)
     private Set<Branch> branches = new HashSet<>();
 
 

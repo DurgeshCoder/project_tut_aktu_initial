@@ -26,7 +26,7 @@ public class Branch {
     private String name;
     @ManyToMany
     private Set<Course> courses = new HashSet<>();
-    @ManyToMany(mappedBy = "branches")
+    @ManyToMany(mappedBy = "branches", fetch = FetchType.EAGER)
     private Set<Subject> subjects = new HashSet<>();
 
 }

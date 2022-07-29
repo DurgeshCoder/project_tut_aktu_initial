@@ -7,7 +7,7 @@ import java.util.List;
 public interface SubjectService {
 
     //create
-    SubjectDto create(SubjectDto subjectDto);
+    SubjectDto create(SubjectDto subjectDto,int branchId);
 
     //update
     SubjectDto update(int subjectId, SubjectDto subjectDto);
@@ -18,5 +18,8 @@ public interface SubjectService {
     //get
     SubjectDto getById(int subjectId);
 
-    List<SubjectDto> getCourses();
+    List<SubjectDto> getSubjects();
+
+
+    List<SubjectDto> getSubjectsOfBranch(int branchId);
 }

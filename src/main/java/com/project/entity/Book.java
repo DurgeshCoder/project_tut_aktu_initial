@@ -10,9 +10,6 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Book {
 
 

@@ -5,8 +5,10 @@ import com.project.payload.TopicDto;
 import java.util.List;
 
 public interface TopicService {
+
+
     //create topic
-    TopicDto create(TopicDto topicDto);
+    TopicDto create(TopicDto topicDto,int unitId, int subjectId);
 
     //update
     TopicDto update(int topicId, TopicDto topicDto);

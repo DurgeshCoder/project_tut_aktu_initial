@@ -26,7 +26,6 @@ public class Topic {
     private String pageAuthor;
     private String pageKeywords;
     private String pageDescription;
-
     @ManyToOne
     private  Unit unit;
 

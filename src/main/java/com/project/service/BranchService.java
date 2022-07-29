@@ -1,5 +1,6 @@
 package com.project.service;
 
+import com.project.entity.Branch;
 import com.project.payload.BranchDto;
 
 import java.util.List;
@@ -8,6 +9,8 @@ public interface BranchService {
 
     //create
     BranchDto create(BranchDto branchDto);
+
+    BranchDto createInCourse(BranchDto branchDto,int courseId);
 
     //update
     BranchDto update(int branchId, BranchDto branchDto);
@@ -20,4 +23,8 @@ public interface BranchService {
 
 
     BranchDto getById(int branchId);
+
+    //get by course
+
+    List<BranchDto> getByCourse(int courseId);
 }

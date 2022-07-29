@@ -49,6 +49,8 @@ public class Subject {
 
     @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PreviousPaper> previousPapers = new ArrayList<>();
+
+
 }
 
 

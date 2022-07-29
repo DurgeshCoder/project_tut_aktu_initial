@@ -7,7 +7,7 @@ import java.util.List;
 public interface UnitService {
 
     //create
-    UnitDto create(UnitDto unitDto);
+    UnitDto create(UnitDto unitDto,int subjectId);
 
     //update
     UnitDto update(int unitId, UnitDto unitDto);
@@ -19,4 +19,5 @@ public interface UnitService {
     List<UnitDto> getUnitsOfSubjects(int subjectId);
 
 
+    UnitDto get(int unitId);
 }
