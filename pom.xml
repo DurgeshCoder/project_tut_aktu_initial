@@ -14,7 +14,7 @@
     <name>project_tut</name>
     <description>project_tut</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
