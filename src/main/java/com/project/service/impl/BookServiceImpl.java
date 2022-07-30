@@ -9,9 +9,12 @@ import com.project.repository.SubjectRepo;
 import com.project.service.BookService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
 public class BookServiceImpl implements BookService {
 
     private BookRepo bookRepo;
@@ -38,21 +41,33 @@ public class BookServiceImpl implements BookService {
     public BookDto update(BookDto dto, int bookId) {
         Book book = this.bookRepo.findById(bookId).orElseThrow(ResourceNotFoundException::new);
         //update properties
-        return null;
+        book.setCoverUrl(dto.getCoverUrl());
+        book.setDownloadCount(dto.getDownloadCount());
+        book.setEdition(dto.getEdition());
+        book.setTotalPages(dto.getTotalPages());
+        book.setViewCount(dto.getViewCount());
+        book.setTitle(dto.getWriter());
+        book.setEdition(dto.getEdition());
+        Book save = this.bookRepo.save(book);
+        return this.mapper.map(save, BookDto.class);
     }
 
     @Override
     public void delete(int bookId) {
-
+        Book book = this.bookRepo.findById(bookId).orElseThrow(ResourceNotFoundException::new);
+        this.bookRepo.delete(book);
     }
 
     @Override
     public BookDto get(int bookId) {
-        return null;
+        Book book = this.bookRepo.findById(bookId).orElseThrow(ResourceNotFoundException::new);
+        return this.mapper.map(book, BookDto.class);
     }
 
     @Override
     public List<BookDto> getBySubjects(int subjectId) {
-        return null;
+        Subject subject = this.subjectRepo.findById(subjectId).orElseThrow(ResourceNotFoundException::new);
+        List<Book> list = this.bookRepo.findBySubject(subject);
+        return list.stream().map(book -> this.mapper.map(book, BookDto.class)).collect(Collectors.toList());
     }
 }

@@ -40,18 +40,18 @@ public class BranchServiceImpl implements BranchService {
     }
 
     @Override
-    public BranchDto createInCourse(BranchDto branchDto, int courseId) {
+    public BranchDto createInCourse(int branchId, int courseId) {
         Course course = this.courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course", courseId + ""));
-        Branch branch=this.mapper.map(branchDto,Branch.class);
+        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch ", branchId + ""));
         branch.getCourses().add(course);
         course.getBranches().add(branch);
         Branch save = this.branchRepo.save(branch);
-        return this.mapper.map(save,BranchDto.class);
+        return this.mapper.map(save, BranchDto.class);
     }
 
     @Override
     public BranchDto update(int branchId, BranchDto branchDto) {
-        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch",  branchId + ""));
+        Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch", branchId + ""));
         branch.setBranchCode(branchDto.getBranchCode());
         branch.setName(branchDto.getName());
         Branch save = this.branchRepo.save(branch);

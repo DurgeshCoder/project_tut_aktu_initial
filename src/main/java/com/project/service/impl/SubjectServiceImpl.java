@@ -31,12 +31,19 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public SubjectDto create(SubjectDto subjectDto, int branchId) {
+    public SubjectDto create(int subjectId, int branchId) {
         Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch ", branchId + ""));
-        Subject subject = this.mapper.map(subjectDto, Subject.class);
+        Subject subject = this.subjectRepo.findById(subjectId).orElseThrow();
         subject.getBranches().add(branch);
         branch.getSubjects().add(subject);
         Subject save = this.subjectRepo.save(subject);
+        return this.mapper.map(save, SubjectDto.class);
+    }
+
+    @Override
+    public SubjectDto create(SubjectDto subjectDto) {
+        Subject map = this.mapper.map(subjectDto, Subject.class);
+        Subject save = this.subjectRepo.save(map);
         return this.mapper.map(save, SubjectDto.class);
     }
 

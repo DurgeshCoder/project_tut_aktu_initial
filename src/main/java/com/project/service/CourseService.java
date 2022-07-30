@@ -9,7 +9,7 @@ public interface CourseService {
 
     //create
 
-    CourseDto createInCollege(CourseDto dto,int collegeId);
+    CourseDto createInCollege(int courseId,int collegeId);
 
     CourseDto create(CourseDto courseDto);
 

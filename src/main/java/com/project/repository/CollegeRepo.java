@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CollegeRepo extends JpaRepository<College,Integer> {
-    List<University> findByUniversity(University university);
+    List<College> findByUniversity(University university);
 }

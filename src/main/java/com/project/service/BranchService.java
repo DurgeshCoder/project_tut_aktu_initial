@@ -10,7 +10,7 @@ public interface BranchService {
     //create
     BranchDto create(BranchDto branchDto);
 
-    BranchDto createInCourse(BranchDto branchDto,int courseId);
+    BranchDto createInCourse(int branchId,int courseId);
 
     //update
     BranchDto update(int branchId, BranchDto branchDto);

@@ -2,6 +2,7 @@ package com.project.controller;
 
 import com.project.payload.ApiResponse;
 import com.project.payload.UserDto;
+import com.project.payload.UserRegisterRequest;
 import com.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,6 +47,15 @@ public class UserController {
         apiResponse.setStatus(HttpStatus.OK);
         apiResponse.setSuccess(true);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    }
+
+    //user register
+    @PostMapping("/register")
+    public ResponseEntity<UserDto> registerUser(
+            @RequestBody UserRegisterRequest userRegisterRequest
+    ) {
+        UserDto dto = this.userService.registerUser(userRegisterRequest);
+        return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
 }

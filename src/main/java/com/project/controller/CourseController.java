@@ -30,10 +30,10 @@ public class CourseController {
 
     }
 
-    @PostMapping("/colleges/{collegeId}/courses")
-    public ResponseEntity<CourseDto> createInCollege(@RequestBody CourseDto courseDto, @PathVariable int collegeId) {
-        CourseDto courseDto1 = courseService.createInCollege(courseDto, collegeId);
-        return new ResponseEntity<>(courseDto1, HttpStatus.CREATED);
+    @PostMapping("/colleges/{collegeId}/courses/{courseId}")
+    public ResponseEntity<CourseDto> createInCollege(@PathVariable int collegeId,@PathVariable int courseId) {
+        CourseDto courseDto1 = courseService.createInCollege(courseId, collegeId);
+        return new ResponseEntity<>(courseDto1, HttpStatus.OK);
 
     }
 

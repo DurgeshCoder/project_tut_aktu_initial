@@ -35,5 +35,6 @@ public class User {
     @OneToOne
     private Branch branch;
     private int year;
+    private  int semester;
 
 }

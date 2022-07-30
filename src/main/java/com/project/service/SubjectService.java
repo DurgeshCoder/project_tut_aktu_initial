@@ -6,8 +6,11 @@ import java.util.List;
 
 public interface SubjectService {
 
+
     //create
-    SubjectDto create(SubjectDto subjectDto,int branchId);
+    SubjectDto create(int subject, int branchId);
+
+    SubjectDto create(SubjectDto subjectDto);
 
     //update
     SubjectDto update(int subjectId, SubjectDto subjectDto);

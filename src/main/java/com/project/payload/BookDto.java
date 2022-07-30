@@ -16,9 +16,10 @@ public class BookDto {
     private  String title;
     private String writer;
     private  String edition;
-    private  String pageNumber;
+    private  String totalPages;
     private  String coverUrl;
     private  String downloadCount;
+    private  String viewCount;
     private SubjectDto subject;
 
 }

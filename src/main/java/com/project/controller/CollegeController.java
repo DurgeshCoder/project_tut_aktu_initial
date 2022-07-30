@@ -72,7 +72,7 @@ public class CollegeController {
     }
 
     //
-    //    create
+    //    get
     @GetMapping("/universities/{universityId}/colleges")
     public ResponseEntity<List<CollegeDto>> getCollegeOfUniversity(@PathVariable int universityId) {
         List<CollegeDto> colleges = this.collegeService.getCollegeOfUniversity(universityId);

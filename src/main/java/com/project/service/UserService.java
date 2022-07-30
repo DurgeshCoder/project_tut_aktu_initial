@@ -1,6 +1,7 @@
 package com.project.service;
 
 import com.project.payload.UserDto;
+import com.project.payload.UserRegisterRequest;
 
 public interface UserService {
 
@@ -21,5 +22,7 @@ public interface UserService {
 
     //
     public boolean checkUserByEmail(String email);
+
+    UserDto registerUser(UserRegisterRequest userRegisterRequest);
 
 }

@@ -22,10 +22,18 @@ public class SubjectController {
         this.mapper = mapper;
     }
 
+
     //create
-    @PostMapping("/branches/{branchId}/subjects")
-    public ResponseEntity<SubjectDto> create(@RequestBody SubjectDto dto, @PathVariable int branchId) {
-        SubjectDto subjectDto = this.subjectService.create(dto, branchId);
+    @PostMapping("/subjects")
+    public ResponseEntity<SubjectDto> create(@RequestBody SubjectDto dto) {
+        SubjectDto subjectDto = this.subjectService.create(dto);
+        return new ResponseEntity<>(subjectDto, HttpStatus.CREATED);
+    }
+
+    //create
+    @PostMapping("/branches/{branchId}/subjects/{subjectId}")
+    public ResponseEntity<SubjectDto> MapSubjectToBranch(@PathVariable int subjectId, @PathVariable int branchId) {
+        SubjectDto subjectDto = this.subjectService.create(subjectId, branchId);
         return new ResponseEntity<>(subjectDto, HttpStatus.CREATED);
     }
 

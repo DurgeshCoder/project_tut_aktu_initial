@@ -81,7 +81,7 @@ public class CollegeServiceImpl implements CollegeService {
     @Override
     public List<CollegeDto> getCollegeOfUniversity(int universityId) {
         University university = this.universityRepo.findById(universityId).orElseThrow(() -> new ResourceNotFoundException("University ", universityId + ""));
-        List<University> byUniversity = this.collegeRepo.findByUniversity(university);
+        List<College> byUniversity = this.collegeRepo.findByUniversity(university);
         List<CollegeDto> collect = byUniversity.stream().map((c) -> this.modelMapper.map(c, CollegeDto.class)).collect(Collectors.toList());
         return collect;
     }

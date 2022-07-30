@@ -27,9 +27,15 @@ public class BranchController {
     }
     //create
 
-    @PostMapping("/courses/{courseId}/branches")
-    public ResponseEntity<BranchDto> createInCourse(@RequestBody BranchDto branchDto, @PathVariable int courseId) {
-        BranchDto inCourse = this.branchService.createInCourse(branchDto, courseId);
+    @PostMapping("/branches")
+    public ResponseEntity<BranchDto> create(@RequestBody BranchDto branchDto) {
+        BranchDto inCourse = this.branchService.create(branchDto);
+        return new ResponseEntity<>(inCourse, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/courses/{courseId}/branches/{branchId}")
+    public ResponseEntity<BranchDto> createInCourse(@PathVariable int courseId,@PathVariable int branchId) {
+        BranchDto inCourse = this.branchService.createInCourse(branchId, courseId);
         return new ResponseEntity<>(inCourse, HttpStatus.CREATED);
     }
 

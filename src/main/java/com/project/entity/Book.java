@@ -19,9 +19,10 @@ public class Book {
     private  String title;
     private String writer;
     private  String edition;
-    private  String pageNumber;
+    private  String totalPages;
     private  String coverUrl;
     private  String downloadCount;
+    private  String viewCount;
     @ManyToOne
     private  Subject subject;
 

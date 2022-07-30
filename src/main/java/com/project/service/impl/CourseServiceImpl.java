@@ -29,13 +29,13 @@ public class CourseServiceImpl implements CourseService {
     private CollegeRepo collegeRepo;
 
     @Override
-    public CourseDto createInCollege(CourseDto dto, int collegeId) {
+    public CourseDto createInCollege(int courseId, int collegeId) {
 
         College college = this.collegeRepo.findById(collegeId).orElseThrow(() -> new ResourceNotFoundException("College ", collegeId + ""));
-        Course course = this.mapper.map(dto, Course.class);
-        course.getColleges().add(college);
-        college.getCourses().add(course);
-        Course save = this.courseRepo.save(course);
+        Course course_ = this.courseRepo.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("course ", courseId + ""));
+        course_.getColleges().add(college);
+        college.getCourses().add(course_);
+        Course save = this.courseRepo.save(course_);
         return this.mapper.map(save, CourseDto.class);
     }
 
@@ -78,7 +78,6 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<CourseDto> getByCollege(int collegeId) {
         College college = this.collegeRepo.findById(collegeId).orElseThrow(() -> new ResourceNotFoundException("College", collegeId + ""));
-
         Set<Course> courses = college.getCourses();
 
         List<CourseDto> collect = courses.stream().map(c -> this.mapper.map(c, CourseDto.class)).collect(Collectors.toList());

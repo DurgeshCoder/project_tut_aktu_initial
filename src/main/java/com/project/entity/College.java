@@ -18,6 +18,7 @@ public class College {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(unique = true)
     private String collegeCode;
     private String name;
     private String location;

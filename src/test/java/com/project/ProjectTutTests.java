@@ -25,8 +25,6 @@ class ProjectTutTests {
     void contextLoads() {
 
 
-        List<CourseDto> byCollege = courseService.getByCollege(7);
-        System.out.println(byCollege.size());
 
     }
 
