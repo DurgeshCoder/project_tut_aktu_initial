@@ -43,10 +43,19 @@ public class UserController {
     public ResponseEntity<ApiResponse> checkUserByEmailId(@PathVariable String email) {
         boolean f = this.userService.checkUserByEmail(email);
         ApiResponse apiResponse = new ApiResponse();
-        apiResponse.setMessage("User exits with this email in database");
-        apiResponse.setStatus(HttpStatus.OK);
-        apiResponse.setSuccess(true);
-        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+
+        if (f) {
+            apiResponse.setMessage("User exits with this email in database");
+            apiResponse.setStatus(HttpStatus.OK);
+            apiResponse.setSuccess(true);
+            return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+        } else {
+            apiResponse.setMessage("User does not exits with this email in database");
+            apiResponse.setStatus(HttpStatus.NOT_FOUND);
+            apiResponse.setSuccess(true);
+            return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+        }
+
     }
 
     //user register
