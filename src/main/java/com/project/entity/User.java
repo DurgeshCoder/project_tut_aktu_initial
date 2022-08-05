@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-
+@Table(name="aktu_users")
 public class User {
 
 
