@@ -32,7 +32,7 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @GetMapping("email/{userId}")
+    @GetMapping("email/{email}")
     public ResponseEntity<UserDto> getUserByEmail(@PathVariable String email) {
         UserDto user = this.userService.getUserByEmail(email);
         return new ResponseEntity<>(user, HttpStatus.OK);
@@ -40,7 +40,7 @@ public class UserController {
 
     //check
     @GetMapping("/check/{email}")
-    public ResponseEntity<ApiResponse> getUser(@PathVariable String email) {
+    public ResponseEntity<ApiResponse> checkUserByEmailId(@PathVariable String email) {
         boolean f = this.userService.checkUserByEmail(email);
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setMessage("User exits with this email in database");

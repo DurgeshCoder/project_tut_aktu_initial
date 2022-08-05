@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean checkUserByEmail(String email) {
-        Boolean aBoolean = this.userRepo.existsByEmail(email);
+        Boolean aBoolean = this.userRepo.existsByEmail(email).orElseThrow(() -> new ResourceNotFoundException("user ", email + ""));
         return aBoolean;
     }
 

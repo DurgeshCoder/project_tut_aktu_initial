@@ -33,7 +33,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public SubjectDto create(int subjectId, int branchId) {
         Branch branch = this.branchRepo.findById(branchId).orElseThrow(() -> new ResourceNotFoundException("Branch ", branchId + ""));
-        Subject subject = this.subjectRepo.findById(subjectId).orElseThrow(() -> new ResourceNotFoundException("Subject ", subjectId + ""));
+        Subject subject = this.subjectRepo.findById(subjectId).orElseThrow();
         subject.getBranches().add(branch);
         branch.getSubjects().add(subject);
         Subject save = this.subjectRepo.save(subject);
