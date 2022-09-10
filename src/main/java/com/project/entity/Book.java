@@ -23,6 +23,7 @@ public class Book {
     private  String coverUrl;
     private  String downloadCount;
     private  String viewCount;
+    // add boot url
     @ManyToOne
     private  Subject subject;
 

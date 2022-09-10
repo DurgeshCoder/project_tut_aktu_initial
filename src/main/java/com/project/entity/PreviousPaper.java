@@ -22,12 +22,9 @@ public class PreviousPaper {
 
     private String title;
     private int year;
-
     private int semester;
     private String questionPaperUrl;
-
     private String answerUrl;
-
     @ManyToOne
     private Subject subject;
 
